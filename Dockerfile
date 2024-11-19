@@ -4,7 +4,7 @@ FROM python 3.6
 WORKDIR /app
 COPY . .
 # Install pip dependencies from requirements
-RUN pip install ir requirements.txt
+RUN pip install -r requirements.txt
 # Set YOUR_NAME environment variable
 ENV YOUR_NAME="Rhys"
 # Expose the correct port
