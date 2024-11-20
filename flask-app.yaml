@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: flask-container
-          image: rhyssevans/rhysduo:latest
+          image: rhyssevans/rhys-duo-jenk:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 5500
