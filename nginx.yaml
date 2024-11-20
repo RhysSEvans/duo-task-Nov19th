@@ -27,8 +27,8 @@ spec:
       app: nginx
   strategy:
     rollingUpdate:
-      maxSurge: 10%
-      maxUnavailable: 25%
+      maxSurge: 20%
+      maxUnavailable: 20%
   template:
     metadata:
       labels:
