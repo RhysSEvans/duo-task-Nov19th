@@ -62,8 +62,8 @@ pipeline {
                 script {
                     if (env.GIT_BRANCH == 'origin/main') {
                         sh'''
-                        kubectl apply -f . -n dev
-                        kubectl set image deployment/flask-deployment flask-container=rhyssevans/rhys-duo-jenk:v${BUILD_NUMBER} -n dev
+                        kubectl apply -f . -n prod
+                        kubectl set image deployment/flask-deployment flask-container=rhyssevans/rhys-duo-jenk:v${BUILD_NUMBER} -n prod
                         '''
                     } else if (env.GIT_BRANCH == 'origin/dev') {
                         sh'''
