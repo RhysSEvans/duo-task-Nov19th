@@ -27,7 +27,7 @@ pipeline {
                         '''
                     } else if (env.GIT_BRANCH == 'origin/dev') {
                         sh'''
-                        docker build -t rhyssevans/rhys-duo-jenk:latest -t rhyssevans/rhys-duo-jenk:v${BUILD_NUMBER} .
+                        docker build -t rhyssevans/rhys-duo-jenk:latest -t rhyssevans/rhys-duo-jenk-dev:v${BUILD_NUMBER} .
                         '''
                     } else {
                         sh'echo "unrecognised branch"'
@@ -43,7 +43,7 @@ pipeline {
                     if (env.GIT_BRANCH == 'origin/main') {
                         sh'''
                         docker push rhyssevans/rhys-duo-jenk:latest
-                        docker push rhyssevans/rhys-duo-jenk:v${BUILD_NUMBER}
+                        docker push rhyssevans/rhys-duo-jenk-dev:v${BUILD_NUMBER}
                         '''
                     } else if (env.GIT_BRANCH == 'origin/dev') {
                         sh'''
@@ -68,7 +68,7 @@ pipeline {
                     } else if (env.GIT_BRANCH == 'origin/dev') {
                         sh'''
                         kubectl apply -f . -n dev
-                        kubectl set image deployment/flask-deployment flask-container=rhyssevans/rhys-duo-jenk:v${BUILD_NUMBER} -n dev
+                        kubectl set image deployment/flask-deployment flask-container=rhyssevans/rhys-duo-jenk-dev:v${BUILD_NUMBER} -n dev
                         '''
                     } else {
                         sh'echo "unrecognised branch"'
